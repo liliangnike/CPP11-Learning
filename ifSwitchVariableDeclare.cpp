@@ -27,6 +27,7 @@ int main()
         *it = 3;
     }
 
+    // if statement here is similar to for statement
     if ( const auto it = find(vec.begin(), vec.end(), 3);
 	it != vec.end() )
     {
