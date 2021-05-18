@@ -23,6 +23,8 @@
         For 1, 2, 3, capture the variables that already defined in the outer scope 
 
         
+        Lambda is a class type (similar to function object type) essentially. 
+	So lambda also can be called as a function type. --------------------------- see std::function for more details.       
 */
 
 #include <iostream>
@@ -71,12 +73,26 @@ void lambda_generic()
     cout << "generic lambda -> " << generic(1.1, 2.2) << endl;
 };
 
+// see std::function
+using funcPtr = void(int);
+void func(funcPtr f)
+{
+    f(1);
+};
+
+void lambda_call_as_function_object()
+{
+    auto f = [](int val) { cout << "Value is " << val << " after calling this lambda as function object." << endl;};
+    func(f);
+};
+
 int main()
 {
     lambda_capture_value();
     lambda_capture_reference();
     lambda_capture_expression();
     lambda_generic();
+    lambda_call_as_function_object();
 
     return 0;   
 }
