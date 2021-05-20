@@ -83,7 +83,8 @@ void func(funcPtr f)
 void lambda_call_as_function_object()
 {
     auto f = [](int val) { cout << "Value is " << val << " after calling this lambda as function object." << endl;};
-    func(f);
+    func(f);    // calling f function pointer
+    f(1);       // calling f by lambda
 };
 
 int main()
